@@ -9,8 +9,22 @@ Write a C program to convert a 23.65 into 25 using pointer
 4.	Print the modified value.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+
+int main() {
+    double num = 23.65;
+    double *ptr = &num;
+    *ptr = 25.0;
+    printf("Modified value = %.2f\n", num);
+    return 0;
+}
+```
 
 ## OUTPUT:
+```
+Modified value = 25.00
+```
  	
 
 
@@ -45,7 +59,27 @@ Write a C program to calculate the Product of first 12 natural numbers using Rec
 6.	Print the result, indicating it is the product of the first 12 natural numbers.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+
+unsigned long long calculateProduct(int n) {
+    if (n == 1)
+        return 1;
+    else
+        return n * calculateProduct(n - 1);
+}
+
+int main() {
+    int n = 12;
+    unsigned long long product = calculateProduct(n);
+    printf("Product = %llu\n", product);
+    return 0;
+}
+```
 ## OUTPUT:
+```
+Product = 479001600
+```
          		
 ## RESULT:
 
@@ -68,10 +102,34 @@ Write C Program to find Sum of each row of a Matrix
 4.	Print the sum for each row.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+
+int main() {
+    int mat[3][3] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+    for (int i = 0; i < 3; i++) {
+        int sum = 0;
+        for (int j = 0; j < 3; j++) {
+            sum += mat[i][j];
+        }
+        printf("Sum of row %d = %d\n", i + 1, sum);
+    }
+    return 0;
+}
+```
 
 
 
 ## OUTPUT
+```
+Sum of row 1 = 6  
+Sum of row 2 = 15  
+Sum of row 3 = 24
+```
 
 
  
@@ -96,9 +154,34 @@ Write C program for the below pyramid string pattern. Enter a string: PROGRAM En
 5.	End the program.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100];
+    int rows;
+    scanf("%s", str);
+    scanf("%d", &rows);
+    for (int i = 1; i <= rows; i++) {
+        for (int j = 0; str[j] != '\0'; j++) {
+            printf("%c ", str[j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
 
 
  ## OUTPUT
+ ```
+P R O G R A M  
+P R O G R A M  
+P R O G R A M  
+P R O G R A M  
+P R O G R A M
+```
 
  
 
@@ -132,9 +215,27 @@ Step 5: Loop from i = 0 to i < n:
 Step 6: End the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+
+int main() {
+    int arr[10], n, i;
+    int *parr = arr;
+    scanf("%d", &n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", (parr + i));
+    }
+    for (i = 0; i < n; i++) {
+        printf("%d ", *(parr + i));
+    }
+    return 0;
+}
+```
 
 ## OUTPUT
-
+```
+10 20 30 40 50 60
+```
  
 
 ## RESULT
